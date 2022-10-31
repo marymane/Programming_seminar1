@@ -7,40 +7,45 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
-int[] FillUniqueNumbers(int min, int max, int arraySize)
-{
-    Random random = new Random();
-    int[]array = new int[arraySize];
-    for (int i = 0; i < arraySize; i++)
-    {
-        array[i] = random.Next(min, max); 
-        for (int j = 0; j < i; j++)
-        {
-            if (array[i] == array[j])
-                {
-                    i--;
-                }
-        } 
-        Console.Write($"{array[i]} ");    
-    }
-    return array;
-}
+// int[] FillUniqueNumbers(int min, int max, int arraySize)
+// {
+//     Random random = new Random();
+//     int[]array = new int[arraySize];
+//     for (int i = 0; i < arraySize; i++)
+//     {
+//         array[i] = random.Next(min, max); 
+//         for (int j = 0; j < i; j++)
+//         {
+//             if (array[i] == array[j])
+//                 {
+//                     i--;
+//                 }
+//         } 
+//         Console.Write($"{array[i]} ");    
+//     }
+//     return array;
+// }
 
-void FillArray3D (int[,,] array, int[] temp)
+void FillArray3D (int[,,] array, int min, int max)
 {
-    int step = 0;
+    
+    Random random = new Random();
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
             for (int k = 0; k < array.GetLength(2); k++)
             {
-                array[i,j,k] = temp[i+j+k+step];
-            }
-            step+=array.GetLength(1)-1;
-            
+                array[i,j,k] = random.Next(min, max);
+                for (int m = 0; m < k; m++)
+                {
+                    if (array[i,j,k] == array[i,j,m])
+                    {
+                        k--;
+                    }
+                } 
+            }            
         }
-        step+=array.GetLength(2)-1;
     }
 }
 
@@ -72,7 +77,7 @@ if (x*y*z > 90)
 else
 {
     int[,,] matrix3D = new int[x,y,z];
-    FillArray3D(matrix3D,FillUniqueNumbers(10,100,matrix3D.Length));
+    FillArray3D(matrix3D, 10, 100);
     Console.WriteLine($"Заполнили ваш массив размерностью {x}x{y}x{z} двузначными неповторяющимися числами:");
     PrintArray3D(matrix3D);
 }
