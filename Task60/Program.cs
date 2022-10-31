@@ -7,24 +7,6 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
-// int[] FillUniqueNumbers(int min, int max, int arraySize)
-// {
-//     Random random = new Random();
-//     int[]array = new int[arraySize];
-//     for (int i = 0; i < arraySize; i++)
-//     {
-//         array[i] = random.Next(min, max); 
-//         for (int j = 0; j < i; j++)
-//         {
-//             if (array[i] == array[j])
-//                 {
-//                     i--;
-//                 }
-//         } 
-//         Console.Write($"{array[i]} ");    
-//     }
-//     return array;
-// }
 
 void FillArray3D (int[,,] array, int min, int max)
 {
