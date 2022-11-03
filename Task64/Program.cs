@@ -4,18 +4,18 @@
 // N = 5 -> "5, 4, 3, 2, 1"
 // N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
 
-void PrintAllNatural (int N)
-{
-    if (N == 1) 
-    Console.Write (N);
+// void PrintAllNatural (int N)
+// {
+//     if (N == 1) 
+//     Console.Write (N);
 
-    else
-    {
-        Console.Write (N + ",");
-        N--;
-        PrintAllNatural (N);
-    }
-}
+//     else
+//     {
+//         Console.Write (N + ",");
+//         N--;
+//         PrintAllNatural (N);
+//     }
+// }
 
 
 double GetNumberFromConsole()
@@ -60,5 +60,5 @@ Console.Write(WriteNumbersRecursion(1, number));
 Console.WriteLine();
 WriteNumbersRecursionVoid(1, number);
 
-int N = Convert.ToInt32(Console.ReadLine());
-PrintAllNatural (N);
+// int N = Convert.ToInt32(Console.ReadLine());
+// PrintAllNatural (N);
