@@ -4,61 +4,23 @@
 // N = 5 -> "5, 4, 3, 2, 1"
 // N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
 
-// void PrintAllNatural (int N)
-// {
-//     if (N == 1) 
-//     Console.Write (N);
-
-//     else
-//     {
-//         Console.Write (N + ",");
-//         N--;
-//         PrintAllNatural (N);
-//     }
-// }
-
-
-double GetNumberFromConsole()
+void PrintAllNatural (int N)
 {
-    return Convert.ToDouble(Console.ReadLine());
-}
+    if (N == 1) 
+    Console.Write (N);
 
-void WriteNumbers(double lastNumber)
-{
-    int counter = 1;
-    while(counter <= lastNumber)
+    else
     {
-        if (counter + 1 <= lastNumber)
-            Console.Write(counter + ", ");
-        else
-            Console.Write(counter);
-        counter++;
+        Console.Write (N + ",");
+        N--;
+        PrintAllNatural (N);
     }
 }
 
-string WriteNumbersRecursion(int startNumber, double lastNumber)
-{
-    if (startNumber <= lastNumber)
-        return startNumber + ", " + WriteNumbersRecursion(startNumber+1, lastNumber);
-    
-    return string.Empty;
-}
-
-void WriteNumbersRecursionVoid(int startNumber, double lastNumber)
-{
-    if (startNumber <= lastNumber)
-    {
-        Console.Write(startNumber + ", ");
-        WriteNumbersRecursionVoid(startNumber+1, lastNumber);
-    }     
-}
-
-double number = GetNumberFromConsole();
-WriteNumbers(number);
-Console.WriteLine();
-Console.Write(WriteNumbersRecursion(1, number));
-Console.WriteLine();
-WriteNumbersRecursionVoid(1, number);
-
-// int N = Convert.ToInt32(Console.ReadLine());
-// PrintAllNatural (N);
+Console.WriteLine("Выведем все натуральные числа в промежутке от N до 1");
+Console.WriteLine("Введите натуральное число N:");
+int N = Convert.ToInt32(Console.ReadLine());
+if (N <= 0) 
+    {Console.Write ("Число N - меньше нуля, натуральных чисел в промежутке от N до 1 нет");}
+else    
+    {PrintAllNatural (N);}
